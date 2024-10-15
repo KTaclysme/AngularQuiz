@@ -1,0 +1,34 @@
+.app-header {
+    background-color: #4a90e2;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+  
+    .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  
+    .nav-links {
+      margin-top: 0.5rem;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: bold;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  

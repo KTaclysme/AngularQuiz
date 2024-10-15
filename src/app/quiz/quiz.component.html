@@ -1,0 +1,16 @@
+<div class="quiz-container">
+    <div class="quizz" *ngFor="let quiz of quizData; let i = index">
+      <div class="question">
+        <p>{{ quiz.question }}</p>
+      </div>
+      <div class="reponse">
+        <ul>
+          <li *ngFor="let answer of quiz.reponses">
+            <button (click)="addReponse(i, answer)">{{ answer.reponse }}</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button (click)="calculPoint()">Envoyer</button>
+  </div>
+  
