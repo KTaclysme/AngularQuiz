@@ -7,7 +7,7 @@ import { ResultComponent } from './result/result.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'quiz/:score', component: ResultComponent } 
+  { path: 'quiz/result', component: ResultComponent } 
 ];
 
 @NgModule({

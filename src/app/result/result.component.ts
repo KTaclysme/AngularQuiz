@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { QuizService } from '../quiz/quiz.service';
 
 @Component({
   selector: 'app-result',
@@ -7,8 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent {
-  score: string  = ''  ;
-  constructor (private route: ActivatedRoute) {
-    this.score = this.route.snapshot.paramMap.get('score') || "";
+  score: number = 0 ;
+  constructor(private quizService: QuizService) {}
+
+  ngOnInit() {
+    this.score = this.quizService.submitScore();
   }
 }

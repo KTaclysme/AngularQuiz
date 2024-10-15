@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { QuizService } from './quiz.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -99,30 +100,15 @@ export class QuizComponent {
       ]
     }
   ];
-  
-  selectedReponses: { reponse: string, isCorrect: boolean }[] = [];
-  
-  constructor(private router: Router){} 
-  finalScore: number = 0  
+
+  constructor(private quizService: QuizService, private router : Router) {}
 
   addReponse(index: number, rep: { reponse: string, isCorrect: boolean }) {
-    this.selectedReponses[index] = rep;
-    console.log(this.selectedReponses);
+    this.quizService.addReponse(index, rep);
   }
-  
-  calculPoint() {
-    let score:number = 0;
-    this.selectedReponses.forEach((rep) => {
-      if (rep.isCorrect) {
-        score++
-      }
-    });
-    return score
-  }
-  
-  subitScore() {
-    console.log(this.finalScore)
-    this.finalScore = this.calculPoint()
-    this.router.navigate(['/quiz', this.finalScore])
+
+  submitQuiz() {
+    this.quizService.submitScore();
+    this.router.navigate(['quiz/result'])
   }
 }
